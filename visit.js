@@ -2,16 +2,30 @@ const { PAGES } = require('../../configuration/index');
 
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
 
-var classPage
+
 
 Given('I am on {string} page', (page) => {
-    classPage = PAGES[page]
+    var classPage = PAGES[page]
+    Cypress.env('classPage', classPage)
     classPage.visit()
     classPage.checkPage()
 });
 
 Then('I am on {string} page', (page) => {
-    classPage = PAGES[page]
+    var classPage = PAGES[page]
+    Cypress.env('classPage', classPage)
     classPage.checkPage()
 });
+
+Given('I am on {string} page with {string} parameter', (page, parameter) => {
+    var classPage = PAGES[page]
+    Cypress.env('classPage', classPage)
+    classPage.visit(parameter)
+})
+
+Then('I am on {string} page with {string} parameter', (page, parameter) => {
+    var classPage = PAGES[page]
+    Cypress.env('classPage', classPage)
+    classPage.visit(parameter)
+})
 
