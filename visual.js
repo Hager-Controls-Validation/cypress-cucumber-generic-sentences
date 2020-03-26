@@ -10,4 +10,8 @@ Then('I can see {string} label is {string}', (labelName, value) => {
     classPage.checkLabel(labelName, value)
 })
 
+Then('I see {string} in the title', (title) => {
+    cy.title().should('include', title)
+  })
+
 

@@ -11,6 +11,10 @@ Given('I am on {string} page', (page) => {
     classPage.checkPage()
 });
 
+Given('I reload page', () => {
+    cy.reload()
+})
+
 Then('I am on {string} page', (page) => {
     var classPage = PAGES[page]
     Cypress.env('classPage', classPage)
