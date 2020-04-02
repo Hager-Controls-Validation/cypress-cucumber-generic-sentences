@@ -1,8 +1,4 @@
-const { PAGES } = require('../../configuration/index');
-
 import { Given, When } from 'cypress-cucumber-preprocessor/steps';
-
-
 
 //check if button is enabled or disabled
 Given('{string} submit button is {string}', (buttonName, status) => {
@@ -20,7 +16,16 @@ Given('{string} submit button is {string}', (buttonName, status) => {
 
 When('I enter {string} in {string} input', (value, inputName) => {
     var classPage = Cypress.env('classPage')
-    classPage.typeInput(inputName, value)
+    if (value !== '') {
+        classPage.typeInput(inputName, value)
+    } else {
+        classPage.clearInput(inputName)
+    }
+})
+
+When('I clear {string} input', (inputName) => {
+    var classPage = Cypress.env('classPage')
+    classPage.clearInput(inputName)
 })
 
 
@@ -29,10 +34,32 @@ When('I click on {string} button', (buttonName) => {
     classPage.clickButton(buttonName)
 })
 
+//check/uncheck statuses
+When('I click on {string} label', (labelName) => {
+    var classPage = Cypress.env('classPage')
+    classPage.clickLabel(labelName)
+})
+
 When('I click on {string} table row', (rowName) => {
     var classPage = Cypress.env('classPage')
     classPage.clickTableRow(rowName)
 })
+
+
+//check/uncheck statuses
+When('I switch {string} checkbox to {string}', (checkboxName) => {
+    const CHECK_STATUSES = {
+        'checked' : 'check',
+        'check': 'check',
+        'unchecked' : 'uncheck',
+        'uncheck' : 'uncheck'
+    }
+    var classPage = Cypress.env('classPage')
+    classPage.switchCheckbox(checkboxName, CHECK_STATUSES[status])
+})
+
+
+
 
 
 
