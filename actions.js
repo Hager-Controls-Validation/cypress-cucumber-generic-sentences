@@ -47,7 +47,7 @@ When('I click on {string} table row', (rowName) => {
 
 
 //check/uncheck statuses
-When('I switch {string} checkbox to {string}', (checkboxName) => {
+When('I switch {string} checkbox to {string}', (checkboxName, status) => {
     const CHECK_STATUSES = {
         'checked' : 'check',
         'check': 'check',
