@@ -28,6 +28,11 @@ When('I clear {string} input', (inputName) => {
     classPage.clearInput(inputName)
 })
 
+When('I exit {string} input', (inputName) => {
+    var classPage = Cypress.env('classPage')
+    classPage.exitInput(inputName)
+})
+
 
 When('I click on {string} button', (buttonName) => {
     var classPage = Cypress.env('classPage')
