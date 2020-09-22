@@ -36,6 +36,7 @@ When('I exit {string} input', (inputName) => {
 
 When('I click on {string} button', (buttonName) => {
     var classPage = Cypress.env('classPage')
+    cy.wait(3000)
     classPage.clickButton(buttonName)
 })
 
