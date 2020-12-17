@@ -1,6 +1,3 @@
-const { PAGES } = require('../../configuration/index');
-
-
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
 
 
